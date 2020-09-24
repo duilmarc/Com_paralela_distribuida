@@ -1,0 +1,35 @@
+digraph "callgraph" {
+subgraph "cluster0" { label="(desconocido)";
+  F55be4562d970 [label="0x0000000000109130\n104 675"];
+  F55be456dc510 [label="0x00000000048e87c0\n12 284"];
+  F55be456e5b90 [label="0x00000000048e92d0\n16 189"];
+  F55be45715590 [label="0x00000000048e7600\n74 560"];
+}
+subgraph "cluster1" { label="libc-2.31.so";
+  F55be455eabc0 [label="(below main)\n104 837"];
+}
+subgraph "cluster2" { label="a.out";
+  F55be455eb7f0 [label="__libc_csu_init\n104 837"];
+  F55be4562bff0 [label="_start\n104 837"];
+  F55be4562d090 [label="_GLOBAL__sub_I__Z22multiplicac...\n104 777"];
+  F55be4562d580 [label="__static_initialization_and_de...\n104 769"];
+}
+subgraph "cluster3" { label="ld-2.31.so";
+  F55be456c5460 [label="_dl_runtime_resolve_xsave\n96 913"];
+}
+subgraph "cluster4" { label="libstdc++.so.6.0.28";
+  F55be456c8540 [label="std::ios_base::Init::Init()\n104 673"];
+}
+  F55be455eabc0 -> F55be455eb7f0 [weight=2,label="104 837 (1x)"];
+  F55be455eb7f0 -> F55be4562d090 [weight=2,label="104 777 (1x)"];
+  F55be4562bff0 -> F55be455eabc0 [weight=2,label="104 837 (0x)"];
+  F55be4562d090 -> F55be4562d580 [weight=2,label="104 769 (1x)"];
+  F55be4562d580 -> F55be4562d970 [weight=2,label="104 675 (1x)"];
+  F55be4562d970 -> F55be456c8540 [weight=2,label="104 673 (1x)"];
+  F55be456c8540 -> F55be456dc510 [weight=2,label="12 284 (4x)"];
+  F55be456c8540 -> F55be456e5b90 [weight=2,label="16 189 (4x)"];
+  F55be456c8540 -> F55be45715590 [weight=2,label="74 560 (6x)"];
+  F55be456dc510 -> F55be456c5460 [weight=2,label="9 658 (1x)"];
+  F55be456e5b90 -> F55be456c5460 [weight=2,label="13 245 (1x)"];
+  F55be45715590 -> F55be456c5460 [weight=2,label="74 010 (1x)"];
+}
