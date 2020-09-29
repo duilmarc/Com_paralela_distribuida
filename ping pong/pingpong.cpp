@@ -11,6 +11,8 @@ int main()
     MPI_Init(NULL,NULL);
     MPI_Comm_size(MPI_COMM_WORLD, &comn_sz);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+    if(comn_sz > 2)
+        MPI_Abort(MPI_COMM_WORLD,1);
     int cont_ping_pong = 0;
     int other_rank = ( my_rank + 1 ) % 2;
     while( cont_ping_pong < LIMITPINGPONG){

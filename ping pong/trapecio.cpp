@@ -51,7 +51,7 @@ int main()
     }
     if(my_rank == 0)
     {
-        cout<< "Con un total de " << n << " trapezoides y un total de "<< comn_sz << " procesos, el calculo estimado: "<<endl;
+        cout<< "Con un total de " << n << " trapezoides y un total de "<< comn_sz << " procesadores, el calculo estimado: "<<endl;
         cout<< total_x_proce<<endl;
     }
     MPI_Finalize();
