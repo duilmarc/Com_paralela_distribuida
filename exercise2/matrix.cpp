@@ -12,13 +12,13 @@ void Generate_matrix( double local_A[], int local_m , int local_n ) {
    int i, j;
    for (i = 0; i < local_m; i++)
       for (j = 0; j < local_n; j++) 
-         local_A[i*local_n + j] = ((double) random())/((double) RAND_MAX);
+         local_A[i*local_n + j] = ((double) random())/((double) 256);
 }  /* Generate_matrix */
 
 
 void generar_vector(double x[], int n) {
     for(register int i = 0; i < n; i++)
-        x[i] = ((double)random()) / ((double)RAND_MAX);
+        x[i] = ((double)random()) / ((double)256);
 }
 
 void mult( double local_A[], double local_x[], double local_y[], int local_m, int n, int local_n, MPI_Comm comm)
